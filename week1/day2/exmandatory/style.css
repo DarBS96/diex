@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    text-align: center;
+}
+
+.div1 {
+    flex-grow: 1;
+}
+
+.div2 {
+    background-color: #4d1850;
+    flex-grow: 1;
+    width: 525.5px;
+}
+
+.login-title {
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.forgot-password {
+    display: inline;
+    margin-left: 290px;
+    color: rgba(128, 125, 125, 0.8);
+}
+
+label[for=remember] {
+    color: rgba(128, 125, 125, 0.8);
+}
+
+.container-text-right {
+    margin-top: 220px;
+}
+
+.container-text-left {
+    margin-top: 120px;
+}
+
+.features {
+    color: rgba(128, 125, 125, 0.8);
+    padding: 15px;
+    margin-bottom: 80px;
+}
+
+.connect {
+    color: rgba(128, 125, 125, 0.8);
+}
+
+footer {
+    color: rgba(128, 125, 125, 0.8);
+}
+
+.info {
+    width: 500px;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: solid rgb(241, 235, 236);
+    background-color: rgb(241, 235, 236);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.btn-login {
+    width: 525.46px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(218, 28, 208);
+    margin-top: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    color: white;
+    margin-top: 40px;
+    cursor: pointer;
+}
+
+.join-title {
+    font-size: 50px;
+    font-family: serif;
+    color: white;
+    margin: 0;
+}
+
+.details {
+    font-family: cursive;
+    color: white;
+    font-size: large
+}
+
+.btn-register {
+    padding: 10px 30px;
+    border-radius: 25px;
+    border: white solid 1px;
+    background-color: #4d1850;
+    color: white;
+    font-family: cursive;
+    cursor: pointer;
+}
+
+.user {
+    font-size: 130px;
+    padding-bottom: 0;
+    color: white;
+}
+
+.join {
+    margin-top: 20px;
+}
