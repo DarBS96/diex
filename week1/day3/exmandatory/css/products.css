@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: antiquewhite;
+}
+
+
+/* Float four columns side by side */
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+}
+
+.card {
+    padding: 16px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+button {
+    text-align: center;
+    margin-bottom: 30px;
+    background-color: blanchedalmond;
+    border: 1px solid black;
+}
+
+button:hover {
+    background-color: grey;
+    cursor: pointer;
+    border: none;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+span {
+    text-decoration: line-through;
+    padding-left: 5px;
+    font-size: 15px;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+.wishlist {
+    position: absolute;
+    bottom: 100%;
+    left: 25%;
+    right: 25%;
+    width: 50%;
+    background-color: black;
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+    font-size: 11px;
+    visibility: hidden;
+}
+
+.icon-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+
+i {
+    background-color: white;
+    padding: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
+    visibility: hidden;
+}
+
+.container:hover i {
+    opacity: 1;
+    visibility: visible;
+}
+
+i:hover {
+    background-color: orange;
+    cursor: pointer;
+}
+
+.icon-container:hover p.wishlist {
+    visibility: visible;
+}
+
+.image-tag {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+}
+
+@media screen and (max-width: 1200px) {
+    .column {
+        width: 16.6%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .column {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .column {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}

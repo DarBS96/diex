@@ -1,0 +1,44 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    background-color: rgb(210, 245, 233);
+}
+
+nav {
+    position: relative;
+}
+
+.brand-img {
+    width: 400px;
+    height: 300px;
+    border: solid 2px greenyellow;
+    margin: 20px;
+}
+
+.container {
+    position: absolute;
+    left: 80%;
+    top: 10%;
+}
+
+a {
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+a:hover {
+    color: aqua;
+}
+
+footer {
+    position: absolute;
+    bottom: 8%;
+    right: 50%;
+    font-size: larger;
+}
