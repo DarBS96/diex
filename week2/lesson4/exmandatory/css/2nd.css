@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(70, 150, 150);
+}
+
+nav,
+h1 {
+    text-align: center;
+}
+
+main {
+    margin: 50px 150px 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+    width: 33.3%;
+    padding: 10px;
+}
+
+div.label.employees {
+    flex-grow: 1;
+}
+
+div.label.advertising {
+    width: 100%;
+}
+
+div.label.checkbox {
+    flex-direction: row;
+    width: 100%;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+.download-btn {
+    margin-top: 50px;
+}
+
+@media screen and(max-width: 720px) {}
