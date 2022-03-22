@@ -12,12 +12,23 @@ body {
 .nav-container {
     display: flex;
     height: 50px;
-    align-items: center;
     background-color: white;
 }
 
 .topnav {
-    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-grow: 2;
+}
+
+.left {
+    flex-grow: 1;
+}
+
+.right {
+    flex-grow: 1;
+    text-align: right;
+    margin-right: 2%;
 }
 
 hr {
@@ -29,11 +40,6 @@ a {
     padding: 14px 16px;
     font-size: 17px;
     color: grey;
-}
-
-.right {
-    float: right;
-    margin-right: 30px;
 }
 
 .signin {
@@ -101,4 +107,16 @@ button {
     color: white;
 }
 
-@media screen and(max-width:768px) {}
+p.features {
+    padding: 0 10px;
+}
+
+
+/* @media screen and(max-width:768px) {
+    .card {
+        height: 100px;
+    }
+    div.card.down {
+        height: 100px;
+    }
+} */
