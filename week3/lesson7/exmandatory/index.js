@@ -1,182 +1,182 @@
-// const favoriteFood = 'pasta'
-// const favoriteMeal = 'branch'
+const favoriteFood = 'pasta'
+const favoriteMeal = 'branch'
 
-// // Exercise 1
+// Exercise 1
 // console.log('I eat ' + favoriteFood + ' at every ' + favoriteMeal)
 
-// // Exercise 2
-// let myWatchedSeries = ["black mirror", "money heist", "the big bang theory"];
-// myWatchedSeriesLength = 1
-// myWatchedSeriesSentence = 'black mirror'
+// Exercise 2
+let myWatchedSeries = ["black mirror", "money heist", "the big bang theory"];
+myWatchedSeriesLength = 1
+myWatchedSeriesSentence = 'black mirror'
 
 // console.log('I watched ' + myWatchedSeriesLength + ' series: ' + myWatchedSeriesSentence)
 
-// myWatchedSeries.splice(2, 1, 'friends', 'Inventing Anna')
+myWatchedSeries.splice(2, 1, 'friends', 'Inventing Anna')
 
-// myWatchedSeries.unshift('Peaky Blinders')
+myWatchedSeries.unshift('Peaky Blinders')
 
-// myWatchedSeries.splice(1, 1)
+myWatchedSeries.splice(1, 1)
 
 // console.log(myWatchedSeries);
 
 // console.log(myWatchedSeries[1].substring(0, 3))
 
-// // Exercise 3
+// Exercise 3
 
-// let celsiusTemp = 10
+let celsiusTemp = 10
 
-// let fahrenheitTemp = (celsiusTemp / 5) * 9 + 32
+let fahrenheitTemp = (celsiusTemp / 5) * 9 + 32
 
 // console.log(celsiusTemp + ' celsius is ' + fahrenheitTemp + ' fahrenheit')
 
-// // Exercise 4
+// Exercise 4
 
-// let c; // undefined
-// let a = 34;
-// let b = 21;
+let c; // undefined
+let a = 34;
+let b = 21;
 
-// console.log(a + b); //first expression
-// // Prediction: 55
-// // Actual: 55
+console.log(a + b); //first expression
+// Prediction: 55
+// Actual: 55
 
-// a = 2;
+a = 2;
 
-// console.log(a + b); //second expression
-// // Prediction: 23
-// // Actual: 23
+console.log(a + b); //second expression
+// Prediction: 23
+// Actual: 23
 
-// console.log(3 + 4 + '5');
-// // Prediction: 75
-// // Actual: 75
+console.log(3 + 4 + '5');
+// Prediction: 75
+// Actual: 75
 
 // // Exercise 5
 
-// typeof(15);
-// // Prediction: number
-// // Actual:
+typeof(15);
+// Prediction: number
+// Actual: number
 
-// typeof(5.5);
-// // Prediction: number
-// // Actual:
+typeof(5.5);
+// Prediction: number
+// Actual: number
 
-// typeof(NaN);
-// // Prediction: number
-// // Actual:
+typeof(NaN);
+// Prediction: number
+// Actual:
 
-// typeof("hello");
-// // Prediction: string
-// // Actual:
+typeof("hello");
+// Prediction: string
+// Actual: string
 
-// typeof(true);
-// // Prediction: boolean
-// // Actual:
+typeof(true);
+// Prediction: boolean
+// Actual: boolean
 
-// typeof(1 != 2);
-// // Prediction: boolean
-// // Actual:
+typeof(1 != 2);
+// Prediction: boolean
+// Actual: boolean
 
-// "hamburger" + "s";
-// // Prediction: string
-// // Actual:
+"hamburger" + "s";
+// Prediction: string
+// Actual: string
 
-// "hamburgers" - "s";
-// // Prediction: string
-// // Actual:
+"hamburgers" - "s";
+// Prediction: string
+// Actual: string
 
-// "1" + "3";
-// // Prediction: string
-// // Actual:
+"1" + "3";
+// Prediction: string
+// Actual: string
 
-// "1" - "3";
-// // Prediction: string
-// // Actual:
+"1" - "3";
+// Prediction: string
+// Actual: string
 
-// "johnny" + 5;
-// // Prediction: string
-// // Actual:
+"johnny" + 5;
+// Prediction: string
+// Actual: string
 
-// "johnny" - 5;
-// // Prediction: number
-// // Actual:
+"johnny" - 5;
+// Prediction: number
+// Actual: NaN
 
-// 99 * "hello";
-// // Prediction: number
-// // Actual:
+99 * "hello";
+// Prediction: number
+// Actual: NaN
 
-// 1 != 1;
-// // Prediction: boolean
-// // Actual:
+1 != 1;
+// Prediction: boolean
+// Actual: boolean
 
-// 1 == "1";
-// // Prediction: boolean
-// // Actual:
+1 == "1";
+// Prediction: boolean
+// Actual: boolean
 
-// 1 === "1";
-// // Prediction: boolean
-// // Actual:
+1 === "1";
+// Prediction: boolean
+// Actual: boolean
 
-// // Exercise 6
+// Exercise 6
 
-// 5 + "34";
-// // Prediction: 534
-// // Actual:
+5 + "34";
+// Prediction: 534
+// Actual: 534
 
-// 5 - "4";
-// // Prediction: 54
-// // Actual: 1
+5 - "4";
+// Prediction: 54
+// Actual: 1
 
-// 10 % 5;
-// // Prediction: 0
-// // Actual:
+10 % 5;
+// Prediction: 0
+// Actual: 0
 
-// 5 % 10;
-// // Prediction: 5
-// // Actual:
+5 % 10;
+// Prediction: 5
+// Actual: 5
 
-// "Java" + "Script";
-// // Prediction: javascript
-// // Actual:
+"Java" + "Script";
+// Prediction: javascript
+// Actual: javascript
 
-// " " + " ";
-// // Prediction: '  '
-// // Actual:
+" " + " ";
+// Prediction: '  '
+// Actual: '  '
 
-// " " + 0;
-// // Prediction: ' 0'
-// // Actual:
+" " + 0;
+// Prediction: ' 0'
+// Actual: ' 0'
 
-// true + true;
-// // Prediction: true
-// // Actual: 2
+true + true;
+// Prediction: true
+// Actual: 2 (true===1)
 
-// true + false
-//     // Prediction: false
-//     // Actual: 1
+true + false
+    // Prediction: false
+    // Actual: 1 (false===0)
 
-// false + true;
-// // Prediction: false
-// // Actual: 1
+false + true;
+// Prediction: false
+// Actual: 1
 
-// false - true;
-// // Prediction: 
-// // Actual: -1
+false - true;
+// Prediction: false
+// Actual: -1
 
-// !true;
-// // Prediction: false
-// // Actual:
+!true;
+// Prediction: false
+// Actual: false
 
-// 3 - 4;
-// // Prediction: -1
-// // Actual:
+3 - 4;
+// Prediction: -1
+// Actual: -1
 
-// "Bob" - "bill";
-// // Prediction:
-// // Actual: NaN
+"Bob" - "bill";
+// Prediction: string
+// Actual: NaN 
 
 // Exercises XP Gold;
 
 // Exercise 1 : Favorite Color;
-// let sentence = ["my", "favorite", "color", "is", "blue"];
+let sentence = ["my", "favorite", "color", "is", "blue"];
 
 // console.log(sentence.join())
 
@@ -221,7 +221,7 @@
 // "A" > "B"; // false
 // "B" < "C"; // true
 // "a" > "A"; // true
-// "b" < "A"; // false1,2
+// "b" < "A"; // false
 
 // true === false; // false
 // true != true; // false
