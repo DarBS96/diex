@@ -64,7 +64,7 @@ let colors = ['yellow', 'pink', 'white', 'black'];
 
 // 2:
 for (let i = 0; i < colors.length; i++) {
-    // console.log(`My #${i} choice is ${colors[i]}`)
+    console.log(`My #${i + 1} choice is ${colors[i]}`);
 }
 
 // bonus: Didn't understand the quest
