@@ -12,10 +12,10 @@
 
 <body>
     <main class="container d-grid justify-content-center">
-        <h1 class="text-center">Random Quote Generator</h1>
+        <h1 class="text-center text-secondary">Random Quote Generator</h1>
         <div class="container container d-grid justify-content-center">
             <p class="quote fw-bold">"The greatest glory in living lies not in never falling, but in rising every time we fall"</p>
-            <p class="author text-center">-Nelson Mandela-</p>
+            <p class="author text-center">-Nelson Mandela-</p> <button class="like m-auto bg-white border-0">💜</button>
         </div>
         <div class="d-flex justify-content-between">
             <button class="prev-quote" onclick="switchQuote(-1)">🔙</button>
@@ -23,33 +23,32 @@
         </div>
         </div>
         <br>
-        <button class="generate-quote m-auto">Generate Quote</button>
+        <button class="generate-quote m-auto btn-dark">Generate Quote</button>
         <br>
-        <form class="d-flex justify-content-center" name="addQuote">
+        <form class="d-flex justify-content-around input-group" name="addQuote">
             <input type="text" id="quote" placeholder="Write a quote">
             <input type="text" id="author" placeholder="Write the author">
-            <button class="add-quote">Add quote</button>
+            <button class="add-quote btn-danger">Add quote</button>
         </form>
         <section class="d-grid justify-content-center">
             <p class="p-character-space-included text-center"></p>
-            <button class="character-space-included">Number of character of the quote space included</button>
+            <button class="character-space-included btn-secondary"> Quote's characters number space included</button>
             <p class="p-character-no-space text-center"></p>
-            <button class="character-no-space">Number of character of the quote with no space included</button>
+            <button class="character-no-space btn-secondary">Quote's characters number no space included</button>
             <p class="p-number-of-words text-center"></p>
-            <button class="number-of-words">Number of words in the quote</button>
+            <button class="number-of-words btn-secondary">Number of words in the quote</button>
             <br>
-            <button class="like m-auto">🤍</button>
         </section>
         <br>
-        <form class="d-flex justify-content-center" name="filtered-quotes">
+        <form class="d-flex justify-content-center input-group" name="filtered-quotes">
             <input id="name-of-author" type="text" placeholder="Name of author">
-            <button class="display-all-specific-quotes">Display all quotes</button>
+            <button class="display-all-specific-quotes btn-success">Display all quotes</button>
         </form>
         <div class="author-quotes">
         </div>
         <br>
         <section class="liked-quotes d-grid justify-content-center">
-            <h4 class="text-center">Quotes that you liked:</h4>
+            <h4 class="text-center">Liked quotes:</h4>
         </section>
     </main>
 

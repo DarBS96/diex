@@ -1,3 +1,4 @@
-button {
-    width: fit-content;
+.prev-quote,
+.next-quote {
+    border-radius: 15px;
 }

@@ -55,14 +55,14 @@ const generateQuote = () => {
     randomNum = Math.floor(Math.random() * quotes.length);
     authorP.textContent = quotes[randomNum].author;
     quoteP.textContent = quotes[randomNum].quote;
-    btnLike.textContent = '🤍';
+    btnLike.textContent = '💜';
 };
 
 const displayQuote = (num) => {
     console.log(num)
     authorP.textContent = quotes[num].author;
     quoteP.textContent = quotes[num].quote;
-    btnLike.textContent = '🤍';
+    btnLike.textContent = '💜';
 };
 
 //Adding display new quote immediately
@@ -76,37 +76,37 @@ const addNewQuote = (e) => {
 };
 
 const calcNumOfCharSpaceIncluded = () => {
-    currentQuote = quotes[randomNum].quote;
-    pBtnSpaceIncluded.textContent = currentQuote.length;
+    currQuote = quotes[currentQuote].quote;
+    pBtnSpaceIncluded.textContent = currQuote.length;
 };
 const calcNumOfCharNoSpaceIncluded = () => {
-    currentQuote = quotes[randomNum].quote;
-    let lengthNoSpace = currentQuote.replaceAll(' ', '').length;
+    currQuote = quotes[currentQuote].quote;
+    let lengthNoSpace = currQuote.replaceAll(' ', '').length;
     pBtnNoSpaceIncluded.textContent = lengthNoSpace;
 };
 
 const CalcNumOfWords = () => {
-    currentQuote = quotes[randomNum].quote;
-    console.log(currentQuote);
-    pBtnCalcNumOfWords.textContent = currentQuote.split(' ').length;
+    currQuote = quotes[currentQuote].quote;
+    console.log(currentQuote)
+    pBtnCalcNumOfWords.textContent = currQuote.split(' ').length;
 };
 
 const like = () => {
-    currQuote = quotes[randomNum]
-    currQuote.like = true;
-    console.log(currentQuote);
-    addQuoteToLikedList();
+    if (!quotes[currentQuote].like) {
+        quotes[currentQuote].like = true
+        addQuoteToLikedList(quotes[currentQuote]);
+    }
 };
-const addQuoteToLikedList = () => {
-    currentQuote = quotes[randomNum];
-    if (currentQuote.like) {
-        btnLike.textContent = '💗';
+const addQuoteToLikedList = (quote) => {
+    if (quote.like) {
+        btnLike.textContent = '💙';
         const ul = document.createElement('ul');
         const li = document.createElement('li');
-        li.append(currentQuote.quote);
+        li.append(quote.quote);
         ul.append(li);
         likedQuotes.append(ul);
     }
+    console.log(quote.like)
 };
 const displayAuthorQuotes = (e) => {
     e.preventDefault();
