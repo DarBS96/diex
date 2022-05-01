@@ -2,3 +2,8 @@
 .next-quote {
     border-radius: 15px;
 }
+
+.prevent-moving {
+    width: 600px;
+    height: 125px;
+}

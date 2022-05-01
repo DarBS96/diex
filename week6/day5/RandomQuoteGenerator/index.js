@@ -23,6 +23,7 @@ const authorInput = document.getElementById('name-of-author');
 const authorQuotes = document.querySelector('.author-quotes');
 
 // Model
+let currentQuote = 0
 const quotes = [{
         id: 0,
         author: 'Nelson Mandela',
@@ -120,8 +121,7 @@ const displayAuthorQuotes = (e) => {
     ul.append(li);
     authorQuotes.append(ul);
 };
-let currentQuote = 0
-    //calling the func from the html
+//calling the func from the html
 const switchQuote = (num) => {
     currentQuote += num
     console.log(currentQuote)
