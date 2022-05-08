@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>page 1</h1>
+    <!-- ex 1 -->
+    <!-- <form id="firstForm" action="" method="get">
+        <label for="name"></label>
+        <input type="text" id="name" placeholder="name" name="name">
+        <br>
+        <label for="comments"></label>
+        <textarea id="comments" cols="30" rows="10" name="comments"></textarea>
+
+        <button>send</button>
+    </form> -->
+
+    <!-- ex 2 -->
+    <form id="goldForm" action="./secondIndex.html">
+        <label for="firstName"></label>
+        <input type="text" id="firstName" placeholder="First name" name="firstName">
+        <br>
+        <label for="lastName"></label>
+        <input type="text" id="lastName" placeholder="Last name" name="lastName">
+        <br>
+        <button>send</button>
+    </form>
+    <script>
+        document.getElementById('goldForm').addEventListener('submit', (e) => {
+            let fName = document.getElementById('firstName').value
+            let lName = document.getElementById('lastName').value
+
+            localStorage.setItem('firstName', fName);
+            localStorage.setItem('lastName', lName);
+        })
+    </script>
+
+    <!-- DailyChallenge -->
+    <!-- <form id="secondForm" action="">
+        <label for="firstName"></label>
+        <input type="text" id="firstName" placeholder="First name" name="firstName">
+        <br>
+        <label for="lastName"></label>
+        <input type="text" id="lastName" placeholder="Last name" name="lastName">
+        <br>
+        <button>send</button>
+    </form>
+</body> -->
+
+    <script src="index.js"></script>
+
+</html>
