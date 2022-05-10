@@ -1,0 +1,79 @@
+// Daily Challenge: Giphy API;
+
+// view
+const input = document.getElementById('category')
+const searchCategoryBtn = document.querySelector('.searchCategory')
+const divDelete = document.querySelector('.deleteEachGif')
+const deleteAllGifBtn = document.querySelector('.deleteAllGifs')
+
+
+// model
+deleteAllGifBtn.style.display = 'none';
+
+const gettingRandomImgGif = async(div) => {
+    console.log(div)
+    try {
+        const res = await fetch(`http://api.giphy.com/v1/gifs/search?q=${input.value}&api_key=GNcv4teknwIJ0rxdlZO1YQ4n5zCGSutV&limit=10&offset=2`);
+        const data = await res.json();
+        const urls = data.data.map(gif => gif.images.original.url);
+        let randomNum = Math.floor(Math.random() * data.data.length);
+        console.log(randomNum);
+        const img = document.createElement('img');
+        img.style.height = '200px';
+        img.style.width = '200px';
+        img.style.borderRadius = '50%'
+        img.className = 'heyImAGif'
+        img.setAttribute('src', urls[randomNum]);
+        div.append(img);
+        divDelete.append(div)
+        console.log(divDelete)
+
+        deleteAllgifs()
+
+    } catch (err) {
+        console.log('Failed to bring data', err);
+    }
+};
+
+const createDeleteBtnToEachGif = () => {
+    const btn = document.createElement('button')
+    const div = document.createElement('div')
+    div.className = 'HeyImContainer'
+    div.style.display = 'grid'
+    btn.className = 'deleteGif btn btn-danger rounded-circle'
+    btn.textContent = 'Delete gif'
+    div.append(btn)
+    divDelete.append(div)
+    console.log(div)
+    gettingRandomImgGif(div)
+    deleteWantedGif()
+}
+
+const deleteAllgifs = () => {
+    const eachGif = document.querySelectorAll('.heyImAGif');
+    const deleteBtnGifs = document.querySelectorAll('.deleteGif');
+    deleteAllGifBtn.addEventListener('click', () => {
+        eachGif.forEach(gif => gif.remove());
+        deleteBtnGifs.forEach(button => button.remove());
+        deleteAllGifBtn.style.display = 'none';
+        location.reload()
+    });
+}
+
+const deleteWantedGif = () => {
+    const deleteWantedGif = document.querySelectorAll('.deleteGif');
+    deleteWantedGif.forEach(btn => {
+        btn.addEventListener('click', (e) => e.target.parentElement.remove());
+    })
+}
+
+// controller
+searchCategoryBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    if (!input.value) {
+        alert('Must fill a category');
+    } else {
+        createDeleteBtnToEachGif();;
+        deleteAllGifBtn.style.display = 'block';
+    }
+})

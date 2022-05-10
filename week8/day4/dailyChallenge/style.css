@@ -1,0 +1,26 @@
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
+h1 {
+    text-align: center;
+    font-family: cursive;
+}
+
+.deleteGif {
+    margin-bottom: 15px;
+    width: 95px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.HeyImContainer {
+    margin: 50px;
+    /* transition: transform 1s; */
+}
+
+.HeyImContainer:hover {
+    /* transform: scale(0); */
+    /* border-radius: 50%; */
+}
