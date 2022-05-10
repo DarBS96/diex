@@ -13,7 +13,7 @@ deleteAllGifBtn.style.display = 'none';
 const gettingRandomImgGif = async(div) => {
     console.log(div)
     try {
-        const res = await fetch(`http://api.giphy.com/v1/gifs/search?q=${input.value}&api_key=GNcv4teknwIJ0rxdlZO1YQ4n5zCGSutV&limit=10&offset=2`);
+        const res = await fetch(`https://api.giphy.com/v1/gifs/search?q=${input.value}&api_key=GNcv4teknwIJ0rxdlZO1YQ4n5zCGSutV&limit=10&offset=2`);
         const data = await res.json();
         const urls = data.data.map(gif => gif.images.original.url);
         let randomNum = Math.floor(Math.random() * data.data.length);

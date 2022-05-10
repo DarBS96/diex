@@ -20,7 +20,8 @@ h1 {
     /* transition: transform 1s; */
 }
 
-.HeyImContainer:hover {
-    /* transform: scale(0); */
-    /* border-radius: 50%; */
-}
+
+/* .HeyImContainer:hover {
+    transform: scale(0); 
+   border-radius: 50%;
+} */
