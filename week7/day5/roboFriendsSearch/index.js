@@ -3,7 +3,6 @@
 // vue
 const main = document.querySelector('.main')
 const input = document.getElementById('findRobot')
-const form = document.getElementById('myForm')
 const dataList = document.getElementById('robots')
 const btnDisplayAll = document.querySelector('.displayAllRobots')
 
@@ -117,9 +116,9 @@ const displayAllRobots = () => {
 }
 
 displayChosenRobot = () => {
-    form.addEventListener('submit', (e) => {
+    input.addEventListener('input', (e) => {
         e.preventDefault()
-        const notChosen = robots.filter(robot => robot.name !== input.value)
+        const notChosen = robots.filter(robot => { return !robot.name.toLowerCase().includes(input.value.toLowerCase()); })
         notChosen.forEach(robot => {
             document.getElementById(robot.id).style.display = 'none'
         })
@@ -127,10 +126,13 @@ displayChosenRobot = () => {
         chosen.forEach(robot => {
             const divContainer = document.getElementById(robot.id)
             divContainer.style.display = 'block';
-            divContainer.style.margin = 'auto';
-            main.style.marginTop = '200px'
         })
-        input.value = ''
+        if (input.value === '') {
+            robots.forEach(robot => {
+                const divContainer = document.getElementById(robot.id);
+                divContainer.style.display = 'block';
+            })
+        }
     })
 }
 
