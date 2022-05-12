@@ -5,6 +5,7 @@ const main = document.querySelector('.main')
 const input = document.getElementById('findRobot')
 const form = document.getElementById('myForm')
 const dataList = document.getElementById('robots')
+const btnDisplayAll = document.querySelector('.displayAllRobots')
 
 // Model
 
@@ -151,3 +152,7 @@ const createOptionsToDataList = () => {
 
 whatToDisplay();
 createOptionsToDataList();
+
+btnDisplayAll.addEventListener('click', () => {
+    location.reload()
+})
