@@ -197,4 +197,5 @@ body {
 
 .slide:checked~.off {
     opacity: .6;
+    color: black;
 }
