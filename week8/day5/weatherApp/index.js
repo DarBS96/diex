@@ -13,7 +13,7 @@ class Card {
         this.cityName = cityName
         this.countryName = countryName
         this.weatherDescription = weatherDescription
-        this.icon = `http://openweathermap.org/img/wn/${icon}@2x.png`
+        this.icon = icon
         this.temp = temp
         this.id = cardsInstances.length
         cardsInstances.push(this)
@@ -43,7 +43,7 @@ class Card {
         const spanDegree = document.createElement('span')
         spanDegree.className = 'degree'
         spanDegree.innerHTML = '&#176;'
-        temp.textContent = this.temp
+            // temp.textContent = this.temp
         const closingCard = document.createElement('button')
         closingCard.className = 'btn-close'
         closingCard.type = 'button'
@@ -51,6 +51,7 @@ class Card {
         weather.className = 'weatherDescription'
         weather.textContent = this.weatherDescription
         temp.append(spanDegree) // it doesnt give me to append the span for unknown reason
+        console.log(temp)
         namesContainer.append(titleCityName, countryCityName)
         itemsContainer.append(namesContainer, icon, temp, weather);
         divContainer.append(closingCard, itemsContainer)
@@ -86,7 +87,7 @@ const getWeatherData = async(url) => {
             cityName: data.name,
             countryName: data.sys.country,
             weatherDescription: data.weather[0].description,
-            icon: data.weather[0].icon,
+            icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
             temp: data.main.temp
         }
         const newWeatherCard = new Card({...sendData })
