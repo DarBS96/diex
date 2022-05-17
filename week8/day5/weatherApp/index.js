@@ -95,7 +95,7 @@ const getWeatherData = (url) => {
         console.log(data);
         console.log(input.value);
         if (data.cod !== 200) {
-            console.log(this.message);
+            console.log(data.message);
             var myModal = new bootstrap.Modal(document.getElementById("myModal"));
             myModal.show();
         }
