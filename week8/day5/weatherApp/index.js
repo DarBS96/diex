@@ -87,7 +87,6 @@ const removeCard = (btnCard) => {
 const getWeatherData = (url) => {
     var xhr = new XMLHttpRequest();
     xhr.addEventListener("load", reqListener);
-    xhr.addEventListener("error", transferFailed);
     xhr.open("GET", url);
     xhr.send();
 
@@ -95,6 +94,11 @@ const getWeatherData = (url) => {
         const data = JSON.parse(this.response);
         console.log(data);
         console.log(input.value);
+        if (data.cod !== 200) {
+            console.log(this.message);
+            var myModal = new bootstrap.Modal(document.getElementById("myModal"));
+            myModal.show();
+        }
         const sendData = {
             cityName: data.name,
             countryName: data.sys.country,
@@ -104,17 +108,11 @@ const getWeatherData = (url) => {
         };
         const newWeatherCard = new Card({...sendData });
     }
-
-    function transferFailed() {
-        console.log("An error occurred while transferring the file.");
-        var myModal = new bootstrap.Modal(document.getElementById("myModal"));
-        myModal.show();
-    }
 };
 
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-    getWeatherData(`https://api.openweahermap.org/data/2.5/weather?q=${input.value}&appid=6bc236fa8bd5e7e03f83fd8cea3eac74&units=metric`);
+    getWeatherData(`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=6bc236fa8bd5e7e03f83fd8cea3eac74&units=metric`);
     input.value = '';
 
 });
