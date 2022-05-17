@@ -85,7 +85,7 @@ const removeCard = (btnCard) => {
 // controller
 
 const getWeatherData = (url) => {
-    var xhr = new XMLHttpRequest();
+    let xhr = new XMLHttpRequest();
     xhr.addEventListener("load", reqListener);
     xhr.open("GET", url);
     xhr.send();
