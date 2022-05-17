@@ -71,31 +71,6 @@ class Card {
     }
 }
 
-
-const getWeatherData = async(url) => {
-    try {
-        const res = await fetch(url);
-        if (!res.ok) {
-            var myModal = new bootstrap.Modal(document.getElementById("myModal"));
-            myModal.show();
-            throw new Error(`Error! status: ${res.status}`);
-        }
-        console.log(input.value)
-        const data = await res.json();
-        console.log(data)
-        const sendData = {
-            cityName: data.name,
-            countryName: data.sys.country,
-            weatherDescription: data.weather[0].description,
-            icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
-            temp: data.main.temp
-        }
-        const newWeatherCard = new Card({...sendData })
-    } catch (err) {
-        console.log(err);
-    }
-};
-
 const removeCard = (btnCard) => {
     btnCard.addEventListener('click', (e) => {
         //Update the DOM
@@ -108,9 +83,38 @@ const removeCard = (btnCard) => {
 };
 
 // controller
+
+const getWeatherData = (url) => {
+    var xhr = new XMLHttpRequest();
+    xhr.addEventListener("load", reqListener);
+    xhr.addEventListener("error", transferFailed);
+    xhr.open("GET", url);
+    xhr.send();
+
+    function reqListener() {
+        const data = JSON.parse(this.response);
+        console.log(data);
+        console.log(input.value);
+        const sendData = {
+            cityName: data.name,
+            countryName: data.sys.country,
+            weatherDescription: data.weather[0].description,
+            icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
+            temp: data.main.temp
+        };
+        const newWeatherCard = new Card({...sendData });
+    }
+
+    function transferFailed() {
+        console.log("An error occurred while transferring the file.");
+        var myModal = new bootstrap.Modal(document.getElementById("myModal"));
+        myModal.show();
+    }
+};
+
 form.addEventListener('submit', (e) => {
     e.preventDefault()
-    getWeatherData(`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=6bc236fa8bd5e7e03f83fd8cea3eac74&units=metric`);
+    getWeatherData(`https://api.openweahermap.org/data/2.5/weather?q=${input.value}&appid=6bc236fa8bd5e7e03f83fd8cea3eac74&units=metric`);
     input.value = '';
 
 });
