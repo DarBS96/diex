@@ -1,40 +1,15 @@
 // Daily Challenge: Giphy API;
 
-// view
+// vue
 const input = document.getElementById('category')
 const searchCategoryBtn = document.querySelector('.searchCategory')
 const divDelete = document.querySelector('.deleteEachGif')
 const deleteAllGifBtn = document.querySelector('.deleteAllGifs')
+deleteAllGifBtn.style.display = 'none';
+
 
 
 // model
-deleteAllGifBtn.style.display = 'none';
-
-const gettingRandomImgGif = async(div) => {
-    console.log(div)
-    try {
-        const res = await fetch(`https://api.giphy.com/v1/gifs/search?q=${input.value}&api_key=GNcv4teknwIJ0rxdlZO1YQ4n5zCGSutV&limit=10&offset=2`);
-        const data = await res.json();
-        const urls = data.data.map(gif => gif.images.original.url);
-        let randomNum = Math.floor(Math.random() * data.data.length);
-        console.log(randomNum);
-        const img = document.createElement('img');
-        img.style.height = '200px';
-        img.style.width = '200px';
-        img.style.borderRadius = '50%'
-        img.className = 'heyImAGif'
-        img.setAttribute('src', urls[randomNum]);
-        div.append(img);
-        divDelete.append(div)
-        console.log(divDelete)
-
-        deleteAllgifs()
-
-    } catch (err) {
-        console.log('Failed to bring data', err);
-    }
-};
-
 const createDeleteBtnToEachGif = () => {
     const btn = document.createElement('button')
     const div = document.createElement('div')
@@ -68,6 +43,36 @@ const deleteWantedGif = () => {
 }
 
 // controller
+const gettingRandomImgGif = (div) => {
+    var xhr = new XMLHttpRequest();
+    xhr.addEventListener("load", reqListener);
+    xhr.addEventListener("error", transferFailed);
+    xhr.open("GET", "https://api.giphy.com/v1/gifs/search?q=${input.value}&api_key=GNcv4teknwIJ0rxdlZO1YQ4n5zCGSutV&limit=10&offset=2");
+    xhr.send();
+
+    function reqListener() {
+        const data = JSON.parse(this.response);
+        console.log(data.data);
+        const urls = data.data.map(gif => gif.images.original.url);
+        let randomNum = Math.floor(Math.random() * data.data.length);
+        console.log(randomNum);
+        const img = document.createElement('img');
+        img.style.height = '200px';
+        img.style.width = '200px';
+        img.style.borderRadius = '50%';
+        img.className = 'heyImAGif';
+        img.setAttribute('src', urls[randomNum]);
+        div.append(img);
+        divDelete.append(div);
+        console.log(divDelete);
+
+        deleteAllgifs();
+    }
+
+    function transferFailed() {
+        console.log("An error occurred while transferring the file.");
+    }
+};
 searchCategoryBtn.addEventListener('click', (e) => {
     e.preventDefault()
     if (!input.value) {
