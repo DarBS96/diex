@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+    <main class="main">
+        <h1>From:</h1>
+        <form class="calculate">
+            <div class="firstDataList">
+                <input list="firstCurrencies" name="firstCurrency" id="firstCurrency" autocomplete="off">
+                <datalist id="firstCurrencies">
+  <option value="USD - United States Dollar">
+  <option value="ILS - Israel New Shekel">
+  <option value="EUR - European Euro">
+  <option value="GBP - British Pound">
+  <option value="CAD - Canadian Dollar">
+</datalist>
+            </div>
+            <h1>To:</h1>
+            <div class="secondDataList">
+                <input list="secondCurrencies" name="secondCurrency" id="secondCurrency" autocomplete="off">
+                <datalist id="secondCurrencies">
+  <option value="USD - United States Dollar">
+  <option value="ILS - Israel New Shekel">
+  <option value="EUR - European Euro">
+  <option value="GBP - British Pound">
+  <option value="CAD - Canadian Dollar">
+</datalist>
+            </div>
+            <h1>Amount:</h1>
+            <div class="amount">
+                <input type="number" id="amount">
+                <button>Convert</button>
+            </div>
+        </form>
+        <p class="result"></p>
+    </main>
+
+</body>
+
+</html>
