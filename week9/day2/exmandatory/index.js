@@ -47,3 +47,5 @@ resolvePromise.then(result => console.log(result))
 
 rejectPromise = Promise.reject('Boo')
 rejectPromise.catch(result => console.log(result));
+
+// Exercises Gold;
