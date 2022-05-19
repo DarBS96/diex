@@ -1,0 +1,71 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-image: url('https://i.giphy.com/media/TxVVB6PfWMjE4/200.webp');
+}
+
+.logo {
+    background-image: url('https://i.dlpng.com/static/png/253278_thumb.png');
+    width: 400px;
+    height: 200px;
+    background-repeat: no-repeat;
+    margin: 50px auto;
+}
+
+h1 {
+    margin-bottom: 0;
+}
+
+.error {
+    color: white;
+}
+
+.mainContainer {
+    width: 600px;
+    height: 250px;
+    border: 3px yellow solid;
+    border-radius: 15px;
+    margin: auto;
+    display: grid;
+    justify-content: center;
+}
+
+.findSomeone {
+    border: 3px yellow solid;
+    width: 180px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: block;
+}
+
+.name,
+.height,
+.gender,
+.birthYear,
+.homeWorld {
+    color: white;
+    text-align: center;
+    font-weight: 800;
+}
+
+i {
+    color: white;
+    font-size: 50px;
+    width: 70px;
+    height: 50px;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.loading {
+    color: white;
+    font-size: 50px;
+    margin-top: 30px;
+}
