@@ -16,33 +16,36 @@ const promise3 = new Promise((resolve, reject) => {
 
 // view
 const form = document.getElementById('getSunrise');
-const input1 = document.getElementById('latFirstCity');
-const input2 = document.getElementById('longFirstCity');
-const input3 = document.getElementById('latSecondCity');
-const input4 = document.getElementById('longSecondCity');
+const firstLat = document.getElementById('latFirstCity');
+const firstLong = document.getElementById('longFirstCity');
+const secondLat = document.getElementById('latSecondCity');
+const secondLong = document.getElementById('longSecondCity');
+const firstRes = document.querySelector('.first')
+const secondRes = document.querySelector('.second')
 
-const getData = async() => {
-    try {
-        if (input1.value !== '' && input2.value !== '') {
-            const res = await fetch(`https://api.sunrise-sunset.org/json?lat=${input1.value}&lng=${input2.value}`);
-            console.log(res);
-            if (!res.ok) {
-                throw new Error('Something went wrong');
+const getData = (lan, lng) => {
+    return new Promise((resolve, reject) => {
+        const URL = `https://api.sunrise-sunset.org/json?lat=${lan}&lng=${lng}`
+        const fetchPromise = fetch(URL);
+        fetchPromise.then(response => {
+            if (!response.ok) {
+                reject('Something went wrong');
             }
-            const data = await res.json();
-            console.log(data);
-            getSunriseTime(data);
-        }
-    } catch (err) {
-        console.log(err);
-    }
-};
+            return response.json()
+        }).then(data => {
+            // console.log(data);
+            resolve(data.results.sunrise);
+        });
+    })
+}
 
-getSunriseTime = (data) => {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        console.log(data.results.sunrise);
-    });
-};
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    Promise.all([getData(firstLat.value, firstLong.value), getData(secondLat.value, secondLong.value)])
+        .then(results => {
+            firstRes.textContent = `First city: ${results[0]}`;
+            secondRes.textContent = `Second city: ${results[1]}`;
 
-getData()
+        })
+        .catch(err => console.log(err))
+});
