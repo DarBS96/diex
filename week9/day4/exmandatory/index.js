@@ -2,27 +2,92 @@
 
 // Exercise 1: Conversion;
 
-const getData = async() => {
-    try {
-        const res = await fetch("https://www.swapi.tech/api/starships/9/");
-        if (!res.ok) {
-            throw new Error('Something went wrong');
-        } else {
-            console.log(res);
-            const data = await res.json();
-            console.log(data)
-        }
-    } catch (err) {
-        console.log(err) // It doesn't get the new error that I gave it
-    }
+// const getData = async() => {
+//     try {
+//         const res = await fetch("https://www.swapi.tech/api/starships/9/");
+//         if (!res.ok) {
+//             throw new Error('Something went wrong');
+//         }
+//         console.log(res);
+//         const data = await res.json();
+//         console.log(data)
 
-}
+//     } catch (err) {
+//         console.log(err)
+//     }
+
+// }
 
 // Exercise 2: Analyze;
 
 // My Guessing:
 //  1st: calling
 //  2nd: after 2 seconds => resolved
+
+
+// Exercise XP Gold
+
+// Exercise 1: Analyze #2
+
+// My Guessing:
+// 1: == SEQUENTIAL START ==
+// 2: starting slow promise;
+// 4: slow promise is done
+// 5: slow
+// 6: starting fast promise
+// 7: fast promise is done
+// 8: fast
+
+// Actually:
+
+// == SEQUENTIAL START ==
+//  starting slow promise
+//  slow promise is done;
+//  slow;
+//  starting fast promise;
+//  fast promise is done;
+//  fast
+
+// Exercise 2: Analyze #3
+
+// My Guessing:
+// 1: == SEQUENTIAL START ==
+// 2: starting slow promise;
+// 4: starting fast promise
+// 5: slow promise is done;
+// 6: slow;
+// 7: fast promise is done;
+// 8: fast
+
+// Actually:
+// == CONCURRENT START with await ==
+// 1: starting slow promise;
+// 2:  starting fast promise;
+// 3:  fast promise is done;
+// 4:  slow promise is done;
+// 5:  slow;
+// 6:  fast
+
+
+// Exercise 3 : Modify Fetch With Async / Await
+
+const urls = [
+    "https://jsonplaceholder.typicode.com/users",
+    "https://jsonplaceholder.typicode.com/posts",
+    "https://jsonplaceholder.typicode.com/albums"
+];
+
+const getAPIData = async function() {
+    const [users, posts, albums] = await Promise.all(urls.map(url =>
+        fetch(url)
+    ));
+    console.log('users', await users.json());
+    console.log('posta', await posts.json());
+    console.log('albums', await albums.json());
+};
+
+getAPIData()
+
 
 // Exercises XP Ninja;
 // Exercise 1: Async Await & Try / Catch;

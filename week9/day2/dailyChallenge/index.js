@@ -79,24 +79,17 @@ const toJs = (morse) => {
 
 const toMorse = (morseObj) => {
     return new Promise((resolve, reject) => {
-        const valuesArr = []
         const userAnswer = prompt('Write a word or a sentence');
+        if (!userAnswer) return
         let strArray = userAnswer.split('');
-        const keysArr = Object.entries(morseObj);
-        const findDuplicates = arr => arr.filter((char, index) => arr.indexOf(char) != index);
-        keysArr.forEach(([key, value], index, arr) => {
-            if (userAnswer.includes(key)) {
-                valuesArr.push(value)
-            }
+        const result = strArray.map(letter => {
+            if (Object.keys(morseObj).includes(letter))
+                return morseObj[letter];
         })
-        const duplicates = findDuplicates(strArray);
-        valuesArr.push(morseObj[duplicates]);
-        resolve(valuesArr)
+        resolve(result)
         reject('Sorry the word doesnt exist in the morse')
     })
 };
-
-
 
 const joinWords = (morseTranslation) => {
     morseTranslation.forEach(val => {
