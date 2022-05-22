@@ -1,89 +1,97 @@
 // Mini Project: Weather App;
 
+// Enable to create dynamically classes for divContainer
+const usefulClasses = {
+    DIVCONTAINER: 'divContainer',
+    CARD: 'card',
+    // Adding new class
+    RED: 'purple'
+};
+
 // view
 const form = document.getElementById('submitCity');
-const input = document.getElementById('searchCity')
-const main = document.querySelector('.main')
-const switchTemp = document.getElementById('switch')
+const input = document.getElementById('searchCity');
+const main = document.querySelector('.main');
+const switchTemp = document.getElementById('switch');
+// Creating classes for each card
+const classFromArrToAdd = (arr, el) => arr.forEach(className => el.classList.add(className));
 
 // Model
-const cardsInstances = []
+const cardsInstances = [];
+let myModal = new bootstrap.Modal(document.getElementById("myModal"));
 class Card {
     constructor({ cityName, countryName, weatherDescription, icon, temp }) {
-        this.cityName = cityName
-        this.countryName = countryName
-        this.weatherDescription = weatherDescription
-        this.icon = icon
-        this.temp = temp
-        this.id = cardsInstances.length
-        cardsInstances.push(this)
-        this.showInDom()
-        this.switchBetweenTemp()
-        this.store()
+        this.cityName = cityName;
+        this.countryName = countryName;
+        this.weatherDescription = weatherDescription;
+        this.icon = icon;
+        this.temp = temp;
+        this.id = cardsInstances.length;
+        cardsInstances.push(this);
+        this.showInDom();
+        this.switchBetweenTemp();
+        this.store();
+        this.removeCard();
     }
     showInDom() {
-        const divContainer = document.createElement('div');
-        divContainer.id = this.id
-        divContainer.className = 'divContainer card';
+        const nameContainer = document.createElement('div');
+        nameContainer.id = this.id;
         const itemsContainer = document.createElement('div');
         itemsContainer.className = 'itemsContainer';
         const namesContainer = document.createElement('div');
         namesContainer.className = 'namesContainer';
+        classFromArrToAdd([usefulClasses.DIVCONTAINER, usefulClasses.CARD], nameContainer);
         const titleCityName = document.createElement('p');
         titleCityName.className = 'cityName';
-        titleCityName.textContent = this.cityName
+        titleCityName.textContent = this.cityName;
         const countryCityName = document.createElement('p');
         countryCityName.className = 'countryCityName';
-        countryCityName.textContent = ',' + ' ' + this.countryName
+        countryCityName.textContent = ',' + ' ' + this.countryName;
         const icon = document.createElement('img');
         icon.className = 'weatherImage';
         icon.setAttribute('src', this.icon);
-        const temp = document.createElement('p')
-        temp.className = 'temp'
-        const spanDegree = document.createElement('span')
-        spanDegree.className = 'degree'
-        spanDegree.innerHTML = '&#176;'
-            // temp.textContent = this.temp
-        const closingCard = document.createElement('button')
-        closingCard.className = 'btn-close'
-        closingCard.type = 'button'
-        const weather = document.createElement('p')
-        weather.className = 'weatherDescription'
-        weather.textContent = this.weatherDescription
-        temp.append(spanDegree) // it doesnt give me to append the span for unknown reason
-        console.log(temp)
-        namesContainer.append(titleCityName, countryCityName)
+        const temp = document.createElement('p');
+        temp.className = 'temp';
+        const spanDegree = document.createElement('span');
+        spanDegree.className = 'degree';
+        spanDegree.textContent = '°';
+        this.closingCard = document.createElement('button');
+        this.closingCard.className = 'btn-close';
+        this.closingCard.type = 'button';
+        const weather = document.createElement('p');
+        weather.className = 'weatherDescription';
+        weather.textContent = this.weatherDescription;
+        namesContainer.append(titleCityName, countryCityName);
         itemsContainer.append(namesContainer, icon, temp, weather);
-        divContainer.append(closingCard, itemsContainer)
-        main.append(divContainer)
-        removeCard(closingCard)
-        this.tempElem = temp
+        nameContainer.append(this.closingCard, itemsContainer);
+        main.append(nameContainer);
+        this.tempElem = temp;
     }
     switchBetweenTemp() {
         if (switchTemp.checked) {
-            this.tempElem.textContent = this.temp
+            this.tempElem.textContent = this.temp;
         } else {
-            this.tempElem.textContent = ((this.temp * 9) / 5 + 32).toFixed(4)
+            this.tempElem.textContent = ((this.temp * 9) / 5 + 32).toFixed(4);
         }
     }
     store() {
         localStorage.setItem('cards', JSON.stringify(cardsInstances));
     }
+    removeCard() {
+        this.closingCard.addEventListener('click', (e) => {
+            //Update the DOM
+            e.target.parentElement.remove();
+            // Update the localStorage
+            const storeArr = JSON.parse(localStorage.getItem('cards'));
+            storeArr.splice(e.target.parentElement.id, 1);
+            localStorage.setItem('cards', JSON.stringify(storeArr));
+        });
+    };
+
 }
 
-const removeCard = (btnCard) => {
-    btnCard.addEventListener('click', (e) => {
-        //Update the DOM
-        e.target.parentElement.remove();
-        // Update the Model
-        const storeArr = JSON.parse(localStorage.getItem('cards'))
-        storeArr.splice(e.target.parentElement.id, 1)
-        localStorage.setItem('cards', JSON.stringify(storeArr));
-    });
-};
 
 // controller
-
 const getWeatherData = (url) => {
     let xhr = new XMLHttpRequest();
     xhr.addEventListener("load", reqListener);
@@ -96,7 +104,6 @@ const getWeatherData = (url) => {
         console.log(input.value);
         if (data.cod !== 200) {
             console.log(data.message);
-            var myModal = new bootstrap.Modal(document.getElementById("myModal"));
             myModal.show();
         }
         const sendData = {
@@ -106,27 +113,29 @@ const getWeatherData = (url) => {
             icon: `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`,
             temp: data.main.temp
         };
-        const newWeatherCard = new Card({...sendData });
+        new Card(sendData);
     }
 };
 
 form.addEventListener('submit', (e) => {
-    e.preventDefault()
+    e.preventDefault();
     getWeatherData(`https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=6bc236fa8bd5e7e03f83fd8cea3eac74&units=metric`);
     input.value = '';
-
 });
 
-switchTemp.addEventListener('change', () => {
+switchTemp.addEventListener('change', (e) => {
+    window.localStorage.setItem('lastUnit', e.target.checked);
     cardsInstances.forEach(card => {
-        card.switchBetweenTemp()
+        card.switchBetweenTemp();
     });
 });
 
 window.addEventListener('load', () => {
     let dataFromLocalStorage = JSON.parse(localStorage.getItem('cards'));
+    switchTemp.checked = window.localStorage.getItem('lastUnit');
     dataFromLocalStorage.forEach(card => {
-        const cardItems = {...card }
-        new Card(cardItems)
-    })
-}); //  When I onload it, it's immediately go back to C degree ant not keep the F degree
+        const cardItems = {...card };
+        const newWeatherCard = new Card(cardItems);
+        newWeatherCard.switchBetweenTemp();
+    });
+});
