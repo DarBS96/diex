@@ -131,11 +131,13 @@ switchTemp.addEventListener('change', (e) => {
 });
 
 window.addEventListener('load', () => {
+    let lastUnitOnload = window.localStorage.getItem('lastUnit') === 'true' ? true : false;
+    console.log(lastUnitOnload);
+    switchTemp.checked = lastUnitOnload;
+    console.log(switchTemp.checked);
     let dataFromLocalStorage = JSON.parse(localStorage.getItem('cards'));
-    switchTemp.checked = window.localStorage.getItem('lastUnit');
     dataFromLocalStorage.forEach(card => {
         const cardItems = {...card };
-        const newWeatherCard = new Card(cardItems);
-        newWeatherCard.switchBetweenTemp();
+        new Card(cardItems);
     });
 });
