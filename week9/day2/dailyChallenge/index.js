@@ -3,20 +3,25 @@
 // 1rst Daily Challenge;
 
 const makeAllCaps = (arr) => {
+    const upperCaseArr = []
     return new Promise((resolve, reject) => {
-        arr.forEach(element => {
-            typeof(element) === 'string' ? resolve(arr.map(elem => elem.toUpperCase())): reject('Not all the words are type of string')
-        });
+       const result =  arr.every(item =>{
+            if(typeof(item) === 'string'){
+                upperCaseArr.push(item.toUpperCase())
+                return true
+            } else{
+                return false
+            }
+        })
+return result? resolve(upperCaseArr) : reject('Not all the words are type of string')
     })
 }
-
 const sortWords = (upperCaseArr) => {
     return new Promise((resolve, reject) => {
         upperCaseArr.length > 4 ? resolve(upperCaseArr.sort()) : reject('Sorry the length of the words is less than 4')
     })
 }
-
-makeAllCaps(["apple", "pear", "banana", "melon", "kiwi"])
+makeAllCaps(["apple", "pear", "banana", "melon", "kiwi", 1])
     .then(arr => sortWords(arr))
     .then(result => console.log(result))
     .catch(err => console.log(err))
