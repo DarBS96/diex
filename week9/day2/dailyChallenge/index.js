@@ -13,7 +13,7 @@ const makeAllCaps = (arr) => {
                 return false
             }
         })
-return result? resolve(upperCaseArr) : reject('Not all the words are type of string')
+ result? resolve(upperCaseArr) : reject('Not all the words are type of string')
     })
 }
 const sortWords = (upperCaseArr) => {
@@ -21,7 +21,7 @@ const sortWords = (upperCaseArr) => {
         upperCaseArr.length > 4 ? resolve(upperCaseArr.sort()) : reject('Sorry the length of the words is less than 4')
     })
 }
-makeAllCaps(["apple", "pear", "banana", "melon", "kiwi", 1])
+makeAllCaps(["apple", "pear", "banana", "melon", "kiwi"])
     .then(arr => sortWords(arr))
     .then(result => console.log(result))
     .catch(err => console.log(err))
@@ -87,12 +87,14 @@ const toMorse = (morseObj) => {
         const userAnswer = prompt('Write a word or a sentence');
         if (!userAnswer) return
         let strArray = userAnswer.split('');
-        const result = strArray.map(letter => {
-            if (Object.keys(morseObj).includes(letter))
-                return morseObj[letter];
+      const result = strArray.map(letter =>{
+           if (!Object.keys(morseObj).includes(letter)){
+           reject('Sorry at least one word doesnt exist in the morse')
+             } else{
+                   return morseObj[letter];
+             }
         })
         resolve(result)
-        reject('Sorry the word doesnt exist in the morse')
     })
 };
 
