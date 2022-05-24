@@ -85,7 +85,7 @@ const toJs = (morse) => {
 const toMorse = (morseObj) => {
     return new Promise((resolve, reject) => {
         const userAnswer = prompt('Write a word or a sentence');
-        if (!userAnswer) return
+        if (!userAnswer) reject('Sorry at least one word doesnt exist in the morse')
         let strArray = userAnswer.split('');
       const result = strArray.map(letter =>{
            if (!Object.keys(morseObj).includes(letter)){
@@ -107,7 +107,7 @@ const joinWords = (morseTranslation) => {
 }
 
 toJs(morse)
-    .then(result => toMorse(result)
-        .then(result => joinWords(result))
-        .catch(err => console.log(err)))
-    .catch(err => console.log(err));
+    .then(toMorse)
+        .then(joinWords)
+        .catch(console.log)
+    .catch(console.log);
