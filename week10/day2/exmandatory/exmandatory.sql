@@ -75,8 +75,8 @@ SELECT *
 	WHERE first_name LIKE '%a';
 	
 -- 	Fetch the students whose second to last letter of their first_names are a
---  	SELECT FROM public.students
---  	WHERE SUBSTRING(first_name, 2, LENGTH(first_name)) = 'a';
+	SELECT * FROM public.students
+ 	WHERE first_name LIKE '%a_';
 	
 -- 	Fetch the students whose id’s are equal to 1 AND 3
     SELECT * FROM public.students
