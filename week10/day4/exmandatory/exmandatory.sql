@@ -1,21 +1,3 @@
--- Exercise 1 : Items And Customers
-
--- 1:
-
-SELECT price
-FROM public.items ORDER BY price;
-
--- 2:
-SELECT price
-FROM public.items  WHERE price >= 80 ORDER BY price DESC
--- 3:
-select f_name , customer_id  
-FROM public.customers ORDER BY f_name LIMIT 3;
-
--- 4:
-SELECT l_name 
-FROM public.customers ORDER BY l_name DESC
-
 -- Exercise 2 : Dvdrental Database
 
 -- 1:
@@ -44,7 +26,7 @@ FROM public.address WHERE district = 'Texas'
 
 -- 7:
 SELECT *
-FROM public.film WHERE film_id = 15 OR film_id = 150
+FROM public.film WHERE film_id IN (15, 150) 
 
 -- 8:
 SELECT film_id, title, description, length, rental_rate
@@ -59,8 +41,8 @@ SELECT *
 FROM public.payment ORDER BY amount ASC LIMIT 10
 
 -- 11:
--- SELECT * 
--- FROM public.payment ORDER BY amount ASC OFFSET 10;
+ SELECT * 
+ FROM public.payment ORDER BY amount ASC OFFSET 10 fetch first 10 row only 
 
 -- 12:
 SELECT amount, payment_date, customer.customer_id
@@ -69,10 +51,10 @@ INNER JOIN payment
 ON customer.customer_id = payment.customer_id ORDER BY customer.customer_id;
 
 -- 13:
--- SELECT * FROM film
--- INNER JOIN inventory
--- ON film.film_id = inventory.film_id
--- WHERE inventory_id is NULL
+SELECT COUNT (*) FROM film
+LEFT JOIN inventory
+ON film.film_id = inventory.film_id
+WHERE inventory.film_id is NULL
 
 -- 14:
 SELECT city, country
