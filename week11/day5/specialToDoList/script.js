@@ -7,7 +7,7 @@
 //Model
 
 const getDataFromLocalStorage = () => {
-  const tasksFromLocalStorage = JSON.parse(localStorage.getItem("task"));
+  const tasksFromLocalStorage = JSON.parse(localStorage.getItem("tasks"));
   console.log("console from local storage", tasksFromLocalStorage);
   //   tasksFromLocalStorage.forEach((task) => {
   //     // displayName.textContent = task.fullName;
