@@ -9,7 +9,7 @@ const dateEnd = document.querySelector(".end");
 const submit = document.querySelector("addTask");
 
 //Model
-const tasks = [];
+const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 class Task {
   constructor({ fullName, description, dateStart, dateEnd, isCompleted }) {
     this.fullName = fullName;
@@ -19,7 +19,6 @@ class Task {
     this.isCompleted = isCompleted;
     this.id = tasks.length;
     tasks.push(this);
-    console.log(tasks);
     this.pushTasksToLocalStorage();
   }
   pushTasksToLocalStorage() {
@@ -38,6 +37,22 @@ form.addEventListener("submit", (e) => {
     isCompleted: false,
   };
   const task = new Task(customTask);
+  console.log(task);
+
   //   const formData = new FormData(form);
   //   console.log(formData);
 });
+
+// const isComplete = (tasks) => {
+//   const inputs = document.querySelectorAll("input");
+//   inputs.forEach((input) => {
+//     if (input.checked) tasks.isCompleted = true;
+//   });
+//   console.log(tasks);
+//   localStorage.setItem("tasks", JSON.stringify(tasks));
+// };
+
+// displayTasksInAscendingOrder = (task) => {
+//   const olderTask = ''
+//   console.log(task);
+// };

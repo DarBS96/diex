@@ -1,0 +1,21 @@
+.text-container {
+    width: 250px;
+    height: 250px;
+}
+
+.fullName,
+.startingDate,
+.daysLeft {
+    text-align: center;
+}
+
+
+/* .startingDate {
+    width: 200px;
+    margin: auto;
+} */
+
+.startingDate,
+.daysLeft {
+    margin-top: 20px;
+}
