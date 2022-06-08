@@ -34,11 +34,17 @@ const displayTasksInDom = (tasks) => {
     fullName.textContent = task.fullName;
     const startingDate = document.createElement("div");
     startingDate.className = "startingDate";
+    // const span = document.createElement("span");
+    // span.className = "startingDateSpan fw-bolder";
+    // span.textContent = dayStarting;
+    // startingDate.append(span);
     startingDate.textContent = `Task has been created at: ${dayStarting}`;
+    // console.log(startingDate);
     const daysLeft = document.createElement("div");
     daysLeft.className = "daysLeft";
     const diffDays = calculateDaysLeft(dayStarting, dayEnd);
     daysLeft.textContent = `Days left to complete: ${diffDays}`;
+    const dropDown = createDropdown(task);
     const deleteBtn = createDeleteBtn(task.id);
     deleteTask(deleteBtn, tasks);
     const checkboxInput = createCheckBox(task);
@@ -50,7 +56,7 @@ const displayTasksInDom = (tasks) => {
       icon,
       checkboxInput,
       fullName,
-      createDropdown(task),
+      dropDown,
       startingDate,
       daysLeft
     );
@@ -59,10 +65,16 @@ const displayTasksInDom = (tasks) => {
 
     // different color without the task being completed
     if (diffDays <= 0 && !task.isCompleted) {
-      cardContainer.style.backgroundColor = "orange";
+      cardContainer.style.backgroundColor = "#FFAB76";
     }
     if (task.isCompleted) {
-      cardContainer.style.backgroundColor = "yellow";
+      cardContainer.style.backgroundColor = "#C65D7B";
+      startingDate.style.color = "white";
+      daysLeft.style.color = "white";
+      icon.style.color = "white";
+      // Bootstrap bypasses this
+      // dropDown.style.color = "white";
+      // deleteBtn.style.color = "white";
       checkboxInput.firstChild.checked = true;
     }
   });
@@ -137,7 +149,6 @@ createEditBtn = () => {
 };
 
 const editTask = (editElem, task, tasks) => {
-  console.log(tasks);
   editElem.addEventListener("click", () => {
     myModal.show();
     form.addEventListener("submit", (e) => {
@@ -162,17 +173,6 @@ const displayTasksInAscendingOrder = (tasks) => {
 
 const isComplete = (inputElem, tasks, id) => {
   inputElem.addEventListener("change", () => {
-    // if (inputElem.checked) {
-    //   //Update the DOM
-    //   // inputElem.parentElement.parentElement.parentElement.style.backgroundColor =
-    //   //   "red";
-    //   //Update the model
-    //   tasks[id].isCompleted = true;
-    // } else {
-    //   // inputElem.parentElement.parentElement.parentElement.style.backgroundColor =
-    //   //   "white";
-    //   tasks[id].isCompleted = false;
-    // }
     tasks[id].isCompleted = inputElem.checked ? true : false;
     deleteAllCards();
     updateLocalStorage(tasks);

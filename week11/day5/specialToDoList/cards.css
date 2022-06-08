@@ -1,3 +1,8 @@
+.tasksTitle {
+    color: #f24c4c;
+    font-family: cursive;
+}
+
 .text-container {
     width: 250px;
     height: 250px;
@@ -22,4 +27,20 @@
 
 .fa-solid.fa-pen {
     cursor: pointer;
+}
+
+.a {
+    background-color: #550a21;
+    border: #a8818d 3px solid;
+    color: #ff6363;
+    border-radius: 22%;
+    font-family: cursive;
+}
+
+.a:hover {
+    color: #ecb390;
+}
+
+.card-container {
+    background-color: #c0d8c0;
 }
