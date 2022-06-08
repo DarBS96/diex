@@ -17,18 +17,24 @@ class Task {
     this.dateStart = dateStart;
     this.dateEnd = dateEnd;
     this.isCompleted = isCompleted;
-    this.id = tasks.length;
+    this.id = 0;
     tasks.push(this);
     this.pushTasksToLocalStorage();
   }
+
   pushTasksToLocalStorage() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    this.fullName.value = "";
+    this.description.value = "";
   }
 }
 
 //Controller
 
 form.addEventListener("submit", (e) => {
+  // const formData = new FormData(form);
+  // console.log(...formData);
+
   const customTask = {
     fullName: fullName.value,
     description: description.value,
@@ -38,21 +44,4 @@ form.addEventListener("submit", (e) => {
   };
   const task = new Task(customTask);
   console.log(task);
-
-  //   const formData = new FormData(form);
-  //   console.log(formData);
 });
-
-// const isComplete = (tasks) => {
-//   const inputs = document.querySelectorAll("input");
-//   inputs.forEach((input) => {
-//     if (input.checked) tasks.isCompleted = true;
-//   });
-//   console.log(tasks);
-//   localStorage.setItem("tasks", JSON.stringify(tasks));
-// };
-
-// displayTasksInAscendingOrder = (task) => {
-//   const olderTask = ''
-//   console.log(task);
-// };

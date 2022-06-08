@@ -19,3 +19,7 @@
 .daysLeft {
     margin-top: 20px;
 }
+
+.fa-solid.fa-pen {
+    cursor: pointer;
+}

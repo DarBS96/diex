@@ -6,19 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Special To Do list</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <h1>Add to do</h1>
-    <form action="/tasks.html" class="formToDo">
-        <input type="text" class="name" name="name" placeholder="Name of task" />
-        <input type="text" class="description" name="description" placeholder="description" />
-        <input type="datetime-local" class="start" name="start" />
-        <input type="datetime-local" class="end" name="end" />
-        <button class="addTask">Add!</button>
+    <h1 class="text-center text-secondary">Add to do</h1>
+    <form action="/tasks.html" class="formToDo d-grid gap-4 container w-25">
+        <input type="text" class="name border-primary rounded" name="name" placeholder="Name of task" />
+        <input type="text" class="description border-secondary rounded" name="description" placeholder="description" />
+        <label class="fw-bolder text-secondary" for="startDate">Choose Task Starting:</label
+      >
+      <input
+        type="datetime-local"
+        class="start border-primary rounded"
+        name="start"
+        id="startDate"
+      />
+      <label class="fw-bolder text-secondary" for="EndDate"
+        >Choose Task Ending:</label
+      >
+      <input
+        type="datetime-local"
+        class="end border-secondary rounded"
+        name="end"
+        id="endDate"
+      />
+      <button class="addTask btn btn-info">
+        <span class="fw-bolder">Add!</span>
+      </button>
     </form>
     <script src="index.js"></script>
-</body>
-
+  </body>
 </html>
