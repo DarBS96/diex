@@ -6,16 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <form action="http://localhost:5000" method="post">
+    <main class="main">
         <h1>My Shopping List</h1>
-        <input type="text" placeholder="Enter item" name="item" />
-        <input type="number" placeholder="How many" name="number" />
-        <button>Submit</button>
-    </form>
+        <h2>Add items</h2>
+        <input type="text" placeholder="Enter item" id="item" value="" />
+        <input type="number" placeholder="How many" id="number" value="" />
+        <button onClick="addProduct()">Submit</button>
+    </main>
+    <script src="script.js"></script>
 </body>
 
 </html>
