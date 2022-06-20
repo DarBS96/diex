@@ -1,0 +1,1 @@
+Hi I'm learning to read from a file in node.js
