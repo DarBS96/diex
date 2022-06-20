@@ -29,3 +29,9 @@ fs.appendFile("./newfileadded", appendText, function (err, data) {
 fs.unlink("./newfileadded", function (err) {
   if (err) return console.log(err);
 });
+// app.get("/", (req, res) => {
+//   console.log("hi");
+//   res.json({ msg: "hi" });
+// });
+
+// app.listen(3000, () => console.log("server running on port 3000"));
