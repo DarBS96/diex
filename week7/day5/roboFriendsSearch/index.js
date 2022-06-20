@@ -134,6 +134,7 @@ displayChosenRobot = () => {
             })
         }
     })
+
 }
 
 const whatToDisplay = () => {

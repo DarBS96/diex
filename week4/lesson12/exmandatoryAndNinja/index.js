@@ -1,78 +1,78 @@
-// Exercises XP;
+// // Exercises XP;
 
-// Exercise 1 : Change The Navbar;
+// // Exercise 1 : Change The Navbar;
 
-// 1:
-const elNavbar = document.getElementById('navBar');
-//console.log(elNavbar)
+// // 1:
+// const elNavbar = document.getElementById('navBar');
+// //console.log(elNavbar)
 
-// elNavbar.setAttribute('id', 'socialNetworkNavigation');
-
-// 2:
-// const li = document.createElement('li')
-// const ul = document.querySelector('ul')
-// console.log(ul)
-// const text = document.createTextNode('Logout')
-// updateList = li.appendChild(text)
-// console.log(ul.appendChild((updateList)));
-
-//Bonus:
-// console.log(ul.firstElementChild.textContent)
-// console.log(ul.lastElementChild.textContent);
-
-// Exercise 2 : Users;
-
-// 1:
-const ul = document.getElementsByClassName('list');
-ul[0].lastElementChild.innerHTML = 'Richard';
-console.log(ul);
+// // elNavbar.setAttribute('id', 'socialNetworkNavigation');
 
 // // 2:
-ul[0].firstElementChild.innerHTML = 'Dar';
-ul[1].firstElementChild.innerHTML = 'Dar';
+// // const li = document.createElement('li')
+// // const ul = document.querySelector('ul')
+// // console.log(ul)
+// // const text = document.createTextNode('Logout')
+// // updateList = li.appendChild(text)
+// // console.log(ul.appendChild((updateList)));
 
-// // 3:
-const text = document.createTextNode('Hey students');
-const text2 = document.createTextNode('Hey students');
-const createLi = document.createElement('li');
-const newLi = ul[0].appendChild(createLi);
-newLi.appendChild(text);
-const createLi2 = document.createElement('li');
-console.log(createLi2);
-const newLi2 = ul[1].appendChild(createLi2);
-newLi2.appendChild(text2);
+// //Bonus:
+// // console.log(ul.firstElementChild.textContent)
+// // console.log(ul.lastElementChild.textContent);
 
-// // 4:
-ul[1].children[1].remove();
+// // Exercise 2 : Users;
 
-// //Bonus 
+// // 1:
+// const ul = document.getElementsByClassName('list');
+// ul[0].lastElementChild.innerHTML = 'Richard';
+// console.log(ul);
 
-// 1:
-for (list of ul) {
-    list.classList.add('student_list');
-    console.log(list);
-}
+// // // 2:
+// ul[0].firstElementChild.innerHTML = 'Dar';
+// ul[1].firstElementChild.innerHTML = 'Dar';
 
-// 2:
-const newClassList = ul[0].classList;
-newClassList.add('student_list', 'university', 'attendance');
+// // // 3:
+// const text = document.createTextNode('Hey students');
+// const text2 = document.createTextNode('Hey students');
+// const createLi = document.createElement('li');
+// const newLi = ul[0].appendChild(createLi);
+// newLi.appendChild(text);
+// const createLi2 = document.createElement('li');
+// console.log(createLi2);
+// const newLi2 = ul[1].appendChild(createLi2);
+// newLi2.appendChild(text2);
 
-// Exercise 3 : Users And Style;
+// // // 4:
+// ul[1].children[1].remove();
 
-// 1:
-const elDiv = document.querySelector('div');
-const elLi = document.querySelectorAll('li');
-const elBody = document.querySelector('body');
+// // //Bonus 
 
-elDiv.style.background = 'lightBlue';
-elDiv.style.padding = '15px';
-elLi[0].style.display = 'none';
-elLi[1].style.border = '2px black solid';
-elBody.style.fontSize = '30px';
-//Bonus
-if (elDiv.style.background = 'lightBlue') {
-    // alert('Hello x and y')
-}
+// // 1:
+// for (list of ul) {
+//     list.classList.add('student_list');
+//     console.log(list);
+// }
+
+// // 2:
+// const newClassList = ul[0].classList;
+// newClassList.add('student_list', 'university', 'attendance');
+
+// // Exercise 3 : Users And Style;
+
+// // 1:
+// const elDiv = document.querySelector('div');
+// const elLi = document.querySelectorAll('li');
+// const elBody = document.querySelector('body');
+
+// elDiv.style.background = 'lightBlue';
+// elDiv.style.padding = '15px';
+// elLi[0].style.display = 'none';
+// elLi[1].style.border = '2px black solid';
+// elBody.style.fontSize = '30px';
+// //Bonus
+// if (elDiv.style.background = 'lightBlue') {
+//     // alert('Hello x and y')
+// }
 
 // Exercises XP Ninja;
 
@@ -141,4 +141,4 @@ const createCalendar = (year, month) => {
 };
 
 
-createCalendar(9, 2022);
+createCalendar(4, 2075);

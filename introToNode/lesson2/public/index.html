@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <h1>Post with form</h1>
+    <form action="http://localhost:5000/api/products" method="post">
+        Name: <input type="text" name="name" value="" /> <br /> Price: <input type="text" name="price" value="" /> <br />
+        <button>Submit</button>
+    </form>
+    <h1>Post with fetch</h1>
+    Name: <input id="name" type="text" name="name" value="" /> <br /> Price: <input id="price" type="text" name="price" value="" /> <br />
+    <button onclick="addProduct()" type="button" name="button">
+      Submit with fetch
+    </button>
+</body>
+
+</html>

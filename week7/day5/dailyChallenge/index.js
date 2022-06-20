@@ -19,7 +19,7 @@ const isAnagram = (str1, str2) => {
     if (arrStr1.length === arrStr2.length) {
         if (arrStr1.every(letter => arrStr2.includes(letter))) {
             arrStr1.forEach(letter => {
-                arr1[letter] === arr2[letter] ? anagram = true : anagram = false
+                arr1[letter] === arr2[letter] ? anagram = true : anagram = false;
             });
         }
     }

@@ -20,16 +20,18 @@ function infoAboutPerson(personName, personAge, personFavoriteColor) {
 // Exercise 2 : Tips
 
 function calculateTip() {
+    tip = 0;
     let bill = +prompt('Hey John what is the amount of the bill?');
     if (bill < 50) {
-        console.log(`Your bill is :${bill} and the tip is ${bill * 0.2} `);
+        tip = bill * 0.2;
     } else if (bill > 50 && bill < 200) {
-        console.log(`Your bill is :${bill} and the tip is ${bill * 0.15} `);
+        tip = bill * 0.15;
     } else {
-        console.log(`Your bill is :${bill} and the tip is ${bill * 0.1} `);
+        tip = bill * 0.1;
     }
+    return { tip: tip, bill: bill, totalPrice: tip + bill };
 };
-// calculateTip();
+// console.log(calculateTip());
 
 // Exercise 3 : Find The Numbers Divisible By 23;
 let outcome = [];
@@ -112,8 +114,6 @@ const changeEnough = (itemPrice, amountOfChange) => {
 
     if (sum2 >= itemPrice) return true;
     else return false;
-
-
 };
 // const res1 = changeEnough(14.11, [2, 100, 0, 0]);
 // console.log(res1)
@@ -232,12 +232,12 @@ const isPalindrome = (str) => {
     console.log(splitStr);
     // create new reverse arr based on splitStr
     let reverseStr = splitStr.reverse();
-    console.log(reverseStr)
-        // join reverseStr to one word
-    let joinStr = reverseStr.join('')
-    console.log(joinStr)
-        // check if str and joinStr are equal
-    return str === joinStr
+    console.log(reverseStr);
+    // join reverseStr to one word
+    let joinStr = reverseStr.join('');
+    console.log(joinStr);
+    // check if str and joinStr are equal
+    return str === joinStr;
 };
 // console.log(isPalindrome('redivider'));
 
