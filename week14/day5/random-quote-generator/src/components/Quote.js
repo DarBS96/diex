@@ -58,14 +58,15 @@ export class Quote extends React.Component {
   };
 
   render() {
+    const { color, author, quote } = this.state;
     return (
       <>
-        <main className={`vh-100 bg-${this.state.color} d-grid`}>
+        <main className={`vh-100 bg-${color} d-grid`}>
           <div className={`bg-white modalQuote`}>
-            <h1 className={`text-${this.state.color}`}>{this.state.quote}</h1>
-            <p className={`text-${this.state.color} `}>{this.state.author}</p>
+            <h1 className={`text-${color}`}>{quote}</h1>
+            <p className={`text-${color} `}>{author}</p>
             <button
-              className={`btn text-white bg-${this.state.color}`}
+              className={`btn text-white bg-${color}`}
               onClick={this.onClickChanged}
             >
               New quote
