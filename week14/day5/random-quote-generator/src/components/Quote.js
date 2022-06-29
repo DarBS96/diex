@@ -57,8 +57,8 @@ export class Quote extends React.Component {
         color: colors[randomColorsNum],
       };
       if (prevQuote.quote !== newQuote.quote) {
+        return newQuote;
       }
-      return newQuote;
     });
   };
 
