@@ -46,19 +46,25 @@ export class Quote extends React.Component {
       author: quotes[0].author,
     };
   }
+  generateQuote = () => {
+    const randomQuotesNum = Math.floor(Math.random() * quotes.length);
+    console.log(randomQuotesNum);
+    const randomColorsNum = Math.floor(Math.random() * colors.length);
+    const randomQuote = {
+      quote: `"${quotes[randomQuotesNum].quote}"`,
+      author: `-${quotes[randomQuotesNum].author}-`,
+      color: colors[randomColorsNum],
+    };
+    return randomQuote;
+  };
 
   onClickChanged = () => {
-    const randomQuotesNum = Math.floor(Math.random() * quotes.length + 1);
-    const randomColorsNum = Math.floor(Math.random() * colors.length + 1);
     this.setState((prevQuote) => {
-      const newQuote = {
-        quote: `"${quotes[randomQuotesNum].quote}"`,
-        author: `-${quotes[randomQuotesNum].author}-`,
-        color: colors[randomColorsNum],
-      };
-      if (prevQuote.quote !== newQuote.quote) {
-        return newQuote;
+      let newQuote = this.generateQuote();
+      if (prevQuote.quote === newQuote.quote) {
+        newQuote = this.generateQuote();
       }
+      return newQuote;
     });
   };
 
