@@ -1,6 +1,6 @@
 import quotes from "../quotesDB";
 import React from "react";
-// import { useState } from "react";
+// import { useState, useReducer } from "react";
 import "./quote.css";
 
 const colors = ["secondary", "success", "primary", "danger", "warning", "info"];
@@ -50,10 +50,15 @@ export class Quote extends React.Component {
   onClickChanged = () => {
     const randomQuotesNum = Math.floor(Math.random() * quotes.length + 1);
     const randomColorsNum = Math.floor(Math.random() * colors.length + 1);
-    this.setState({
-      quote: `"${quotes[randomQuotesNum].quote}"`,
-      author: `-${quotes[randomQuotesNum].author}-`,
-      color: colors[randomColorsNum],
+    this.setState((prevQuote) => {
+      const newQuote = {
+        quote: `"${quotes[randomQuotesNum].quote}"`,
+        author: `-${quotes[randomQuotesNum].author}-`,
+        color: colors[randomColorsNum],
+      };
+      if (prevQuote.quote !== newQuote.quote) {
+      }
+      return newQuote;
     });
   };
 
