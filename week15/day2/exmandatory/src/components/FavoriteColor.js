@@ -5,7 +5,6 @@ export class FavoriteColor extends Component {
     super();
     this.state = {
       favoriteColor: "Red",
-      show: true,
     };
   }
 
@@ -34,20 +33,6 @@ export class FavoriteColor extends Component {
         <h1>My favorite color is {favoriteColor}</h1>
         <p id="prev"></p>
         <p id="next"></p>
-      </div>
-    );
-  }
-}
-
-export class Child extends Component {
-  componentWillUnmount() {
-    alert("The component is going to be unmounted");
-  }
-
-  render() {
-    return (
-      <div>
-        <header>Hello world</header>
       </div>
     );
   }
