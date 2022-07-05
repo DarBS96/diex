@@ -1,0 +1,78 @@
+.containerGetFormData {
+    margin: auto;
+    width: 400px;
+}
+
+.mainGetFormData {
+    display: grid;
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.displayFormData {
+    display: grid;
+    justify-content: center;
+    height: 260px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+input[type="text"] {
+    margin-left: 20px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type="number"] {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: 60px;
+    border-radius: 5px;
+    border: none;
+}
+
+input[type="checkbox"] {
+    margin-bottom: 20px;
+}
+
+li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#destination {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: none;
+    width: 120px;
+}
+
+input[name="male"] {
+    margin-left: 20px;
+}
+
+input[name="female"] {
+    margin-left: 7px;
+}
+
+ul {
+    margin-right: 100px;
+    margin-bottom: 0;
+}
+
+.submitBtn {
+    background-color: pink;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    width: 100px;
+    margin: auto;
+    display: block;
+}
