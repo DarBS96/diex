@@ -28,9 +28,7 @@ function App() {
         body: JSON.stringify(dataObj),
       };
       const res = await fetch("http://localhost:5000/api/hello", options);
-      console.log(res);
       const dataFromServer = await res.json();
-      console.log(dataFromServer);
       setData(dataFromServer);
     };
 
