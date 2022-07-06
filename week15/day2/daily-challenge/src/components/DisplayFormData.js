@@ -4,6 +4,7 @@ import { UserContext } from "./UserContext";
 
 function DisplayFormData() {
   const userInfo = useContext(UserContext);
+  console.log(userInfo);
   const { firstName, lastName, age, gender, destination, dietaryRestrictions } =
     userInfo;
   // console.log(userInfo);

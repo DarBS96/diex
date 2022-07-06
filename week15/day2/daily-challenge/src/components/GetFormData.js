@@ -100,7 +100,7 @@ function GetFormData(props) {
       </main>
       <button className="submitBtn">Submit</button>
       <br />
-      <UserContext.Provider value={userInfo}>
+      <UserContext.Provider value={{ userInfo, setUserInfo }}>
         <DisplayFormData />
       </UserContext.Provider>
     </div>
