@@ -49,7 +49,7 @@ function AddingTodo(props) {
           value={todo}
           type="text"
           placeholder="Add a new TODO"
-          //Define the name of thr input
+          //Define the name of the input
           {...register("todo", { required: true })}
         />
         {/* //Validation values in the input */}

@@ -13,8 +13,8 @@ function Todo(props) {
 
 export default Todo;
 
-// components:
+// Correct way to divide the components:
 // 1: input & button - adding todo
-// 2: one list  <li> import delete and edit to this component
+// 2: one list <li> import delete and edit components to this component
 // 3: delete
 // 4: edit
