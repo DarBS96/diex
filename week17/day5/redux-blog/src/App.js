@@ -6,7 +6,6 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import { BrowserRouter as Router } from "react-router-dom";
-import Post from "./components/Post";
 import SelectedPost from "./components/SelectedPost";
 function App() {
   return (
